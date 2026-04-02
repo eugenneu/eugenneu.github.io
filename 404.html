@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 | Eugen Neu</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="page">
+    <nav class="nav">
+      <div class="container">
+        <a href="/" class="nav__logo">eugenneu</a>
+      </div>
+    </nav>
+
+    <main>
+      <section class="not-found">
+        <div class="container">
+          <p class="not-found__code">404</p>
+          <p class="not-found__text">This page doesn't exist.</p>
+          <a href="/" class="not-found__link">Back to start</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p class="footer__copy">Eugen Neu</p>
+        <ul class="footer__links">
+          <li><a href="impressum.html">Impressum</a></li>
+          <li><a href="datenschutz.html">Datenschutz</a></li>
+        </ul>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    (function() {
+      const saved = localStorage.getItem('theme');
+      if (saved) document.documentElement.setAttribute('data-theme', saved);
+    })();
+  </script>
+</body>
+</html>

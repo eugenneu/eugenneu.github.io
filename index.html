@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eugen Neu</title>
+  <meta name="description" content="Personal systems that compound. PKM, AI, fitness, and intentional living.">
+
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+
+  <meta property="og:title" content="Eugen Neu">
+  <meta property="og:description" content="Personal systems that compound.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://eugenneu.com">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="page">
+    <nav class="nav">
+      <div class="container">
+        <a href="/" class="nav__logo">eugenneu</a>
+        <button class="theme-toggle" aria-label="Theme wechseln" onclick="toggleTheme()">
+          <span class="theme-toggle__icon"></span>
+        </button>
+      </div>
+    </nav>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <p class="hero__greeting">Something Neu</p>
+          <h1 class="hero__name">Eugen Neu</h1>
+          <p class="hero__tagline">I build personal systems that compound. Writing about PKM, AI-augmented workflows, fitness, and intentional living from Aachen, Germany.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <h2 class="section__title">Elsewhere</h2>
+          <ul class="links-list">
+            <li><a href="https://github.com/eugenneu" rel="me">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/eugenneu/" rel="me">LinkedIn</a></li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p class="footer__copy">Eugen Neu</p>
+        <ul class="footer__links">
+          <li><a href="impressum.html">Impressum</a></li>
+          <li><a href="datenschutz.html">Datenschutz</a></li>
+        </ul>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      updateToggleIcon(next);
+    }
+
+    function updateToggleIcon(theme) {
+      const icon = document.querySelector('.theme-toggle__icon');
+      icon.textContent = theme === 'dark' ? '\u2600' : '\u263E';
+    }
+
+    (function() {
+      const saved = localStorage.getItem('theme');
+      if (saved) {
+        document.documentElement.setAttribute('data-theme', saved);
+      }
+      updateToggleIcon(document.documentElement.getAttribute('data-theme') || 'dark');
+    })();
+  </script>
+</body>
+</html>

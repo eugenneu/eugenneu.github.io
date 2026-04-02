@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Impressum | Eugen Neu</title>
+  <meta name="robots" content="noindex">
+
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="page">
+    <nav class="nav">
+      <div class="container">
+        <a href="/" class="nav__logo">eugenneu</a>
+        <button class="theme-toggle" aria-label="Theme wechseln" onclick="toggleTheme()">
+          <span class="theme-toggle__icon"></span>
+        </button>
+      </div>
+    </nav>
+
+    <main>
+      <section class="legal">
+        <div class="container">
+          <h1>Impressum</h1>
+
+          <h2>Angaben gemass 5 TMG</h2>
+          <p>
+            <strong>Eugen Neu</strong><br>
+            An der alten Tuchfabrik 112<br>
+            52078 Aachen<br>
+            Deutschland
+          </p>
+
+          <h2>Kontakt</h2>
+          <p>
+            E-Mail: eugen [at] eugenneu.com
+          </p>
+
+          <h2>Verantwortlich fuer den Inhalt nach 55 Abs. 2 RStV</h2>
+          <p>
+            Eugen Neu<br>
+            An der alten Tuchfabrik 112<br>
+            52078 Aachen
+          </p>
+
+          <h2>Haftungsausschluss</h2>
+
+          <h2>Haftung fuer Inhalte</h2>
+          <p>Die Inhalte dieser Seiten wurden mit groesster Sorgfalt erstellt. Fuer die Richtigkeit, Vollstaendigkeit und Aktualitaet der Inhalte kann jedoch keine Gewaehr uebernommen werden. Als Diensteanbieter bin ich gemass 7 Abs. 1 TMG fuer eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach 8 bis 10 TMG bin ich als Diensteanbieter jedoch nicht verpflichtet, uebermittelte oder gespeicherte fremde Informationen zu ueberwachen oder nach Umstaenden zu forschen, die auf eine rechtswidrige Taetigkeit hinweisen.</p>
+
+          <h2>Haftung fuer Links</h2>
+          <p>Diese Website enthaelt Links zu externen Websites Dritter, auf deren Inhalte ich keinen Einfluss habe. Deshalb kann ich fuer diese fremden Inhalte auch keine Gewaehr uebernehmen. Fuer die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.</p>
+
+          <h2>Urheberrecht</h2>
+          <p>Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfaeltigung, Bearbeitung, Verbreitung und jede Art der Verwertung ausserhalb der Grenzen des Urheberrechtes beduerfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p class="footer__copy">Eugen Neu</p>
+        <ul class="footer__links">
+          <li><a href="/">Startseite</a></li>
+          <li><a href="datenschutz.html">Datenschutz</a></li>
+        </ul>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      updateToggleIcon(next);
+    }
+    function updateToggleIcon(theme) {
+      const icon = document.querySelector('.theme-toggle__icon');
+      icon.textContent = theme === 'dark' ? '\u2600' : '\u263E';
+    }
+    (function() {
+      const saved = localStorage.getItem('theme');
+      if (saved) document.documentElement.setAttribute('data-theme', saved);
+      updateToggleIcon(document.documentElement.getAttribute('data-theme') || 'dark');
+    })();
+  </script>
+</body>
+</html>
